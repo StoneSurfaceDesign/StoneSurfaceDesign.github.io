@@ -295,7 +295,7 @@
                         <div class="span12">
                             <div id="filters_container">
                                 <ul id="filters">
-                                    <li><a href="#" data-filter="*" class="active">All</a></li>
+                                    <li><a id="all" href="#" data-filter="*" class="active">All</a></li>
                                     <li class="separator">/</li>
 
                                 </ul>
@@ -303,8 +303,7 @@
                         </div>
                     </div>        
                     <div class="row" id="portfolio-container">
-                        <div id="fbimages" class="span3 project art">
-                        </div>
+
                     </div>
                 </div>
 
@@ -499,12 +498,37 @@
                     });
                 });
 
-                $.getJSON('https://graph.facebook.com/138880229640486/photos', function(data) {
+                $.getJSON('https://graph.facebook.com/138893449639164/photos', function(data) {
 
-                    _.each(data.data[0].images, function(image){
+                    _.each(data.data, function(image){
                         if(image.height>100&&image.width>100)
-                            $('#fbimages').prepend('<img width="'+image.width+'" height="'+image.height+'" src="'+image.source+'" />');
+                            $('#portfolio-container').append('' +
+                                    '<div class="span3 project art">' +
+                                    '   <img width="'+image.width+'" height="'+image.height+'" src="'+image.source+'" />' +
+                                    '</div>');
 
+                    });
+
+
+                    var $container = $('#portfolio-container'),
+                            $filters = $("#filters a");
+
+                    $container.imagesLoaded(function() {
+                        $container.isotope({
+                            itemSelector: '.project',
+                            masonry: {
+                                columnWidth: 0
+                            }
+                        });
+                    });
+
+                    // filter items when filter link is clicked
+                    $filters.click(function() {
+                        $filters.removeClass("active");
+                        $(this).addClass("active");
+                        var selector = $(this).data('filter');
+                        $container.isotope({filter: selector});
+                        return false;
                     });
 
                 });
