@@ -263,42 +263,7 @@
                                     </ul></div>
                             </div>
                         </div>
-                        <!--<div class="span4 margintop40">-->
-                            <!--<div class="row left">-->
-                                <!--<div class="span1"><i class="icon-facetime-video support-icon"></i></div>-->
-                                <!--<div class="span3">-->
-                                    <!--<h2>Tutorials</h2>-->
-                                    <!--<ul class="unstyled">-->
-                                        <!--<li><i class="icon-ok"></i> Unlimited support in minutes</li>-->
-                                        <!--<li><i class="icon-ok"></i> From your  dashboard</li>-->
-                                        <!--<li><i class="icon-ok"></i> Ask us about anything</li>-->
-                                    <!--</ul></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="span4 margintop40">-->
-                            <!--<div class="row left">-->
-                                <!--<div class="span1"><i class="icon-book support-icon"></i></div>-->
-                                <!--<div class="span3">-->
-                                    <!--<h2>Manual</h2>-->
-                                    <!--<ul class="unstyled">-->
-                                        <!--<li><i class="icon-ok"></i> Unlimited support in minutes</li>-->
-                                        <!--<li><i class="icon-ok"></i> From your  dashboard</li>-->
-                                        <!--<li><i class="icon-ok"></i> Ask us about anything</li>-->
-                                    <!--</ul></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="span4 margintop40">-->
-                            <!--<div class="row left">-->
-                                <!--<div class="span1"><i class="icon-file support-icon "></i></div>-->
-                                <!--<div class="span3">-->
-                                    <!--<h2>Docs</h2>-->
-                                    <!--<ul class="unstyled">-->
-                                        <!--<li><i class="icon-ok"></i> Unlimited support in minutes</li>-->
-                                        <!--<li><i class="icon-ok"></i> From your  dashboard</li>-->
-                                        <!--<li><i class="icon-ok"></i> Ask us about anything</li>-->
-                                    <!--</ul></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
+
 
 
                     </div>
@@ -439,45 +404,6 @@
 
 
 
-            <!--################ BOTTOM SECTION START ################-->
-
-            <!--<section id="bottom" class="paddingbot20">-->
-
-                <!--<div class="row center">-->
-
-                    <!--<h2>as seen on the</h2>-->
-                <!--</div>-->
-                <!--<div class="container">-->
-                    <!--<div class="row center">-->
-                        <!--<div class="as-seen">-->
-                            <!--<div class="span2">-->
-                                <!--<img src="images/client-1.png" alt="Tc">-->
-                            <!--</div>-->
-                            <!--<div class="span2">-->
-                                <!--<img src="images/client-2.png" alt="Tc">-->
-                            <!--</div>-->
-                            <!--<div class="span2">-->
-                                <!--<img src="images/client-3.png" alt="Tc">-->
-                            <!--</div>-->
-                            <!--<div class="span2">-->
-                                <!--<img src="images/client-4.png" alt="Tc">-->
-                            <!--</div>-->
-                            <!--<div class="span2">-->
-                                <!--<img src="images/client-5.png" alt="Tc">-->
-                            <!--</div>-->
-                            <!--<div class="span2">-->
-                                <!--<img src="images/client-6.png" alt="Tc">-->
-                            <!--</div>-->
-
-                        <!--</div>-->
-
-
-                    <!--</div>-->
-                <!--</div>-->
-
-            <!--</section>-->
-
-            <!--################ BOTTOM SECTION END ################-->
 
 
         </div>
@@ -574,9 +500,9 @@
                 });
 
                 $.getJSON('https://graph.facebook.com/138880229640486/photos', function(data) {
-                    var pics = _.each(data.data.images, function(image){
+                    $.each(data.data.images, function(image){
                         if(image.height>100&&image.width>100)
-                            $('#fbimages').appendChild('<img width="'+image.width+'" height="'+image.height+'" src="'+image.source+'" />');
+                            $('#fbimages').prepend('<img width="'+image.width+'" height="'+image.height+'" src="'+image.source+'" />');
 
                     });
 
