@@ -500,7 +500,7 @@
                 });
 
                 $.getJSON('https://graph.facebook.com/138880229640486/photos', function(data) {
-                    $.each(data.data.images, function(image){
+                    $.each(data.data[0].images, function(image){
                         if(image.height>100&&image.width>100)
                             $('#fbimages').prepend('<img width="'+image.width+'" height="'+image.height+'" src="'+image.source+'" />');
 
