@@ -441,7 +441,7 @@
                 $("#sendContact").click(function(){
                     $.ajax({
                         dataType: "json",
-                        url: 'http://stonesurfacedesignservices.aws.af.cm/email?subject=contactform&emailbody='+encodeURIComponent($('#email').val()),
+                        url: 'http://stonesurfacedesignservices.aws.af.cm/email?sender='+$('#email').val()+'subject=contactform&emailbody='+encodeURIComponent($('#message').val()),
                         data: data,
                         success: success
                     });
