@@ -460,8 +460,9 @@
                     });
                 });
 
-                $.getJSON('https://graph.facebook.com/138893449639164/photos', function(data) {
+                $.getJSON('https://graph.facebook.com/146468118881697/photos', function(data) {
 
+                    
                     _.each(data.data, function(image){
                         if(image.height>100&&image.width>100)
                             $('#portfolio-container').append('' +
@@ -475,29 +476,67 @@
                                     '</div>');
 
                     });
+                    
+                    
+                    
+                     $.getJSON('https://graph.facebook.com/146467615548414/photos', function(data) {
 
-
-                    var $container = $('#portfolio-container'),
-                            $filters = $("#filters a");
-
-                    $container.imagesLoaded(function() {
-                        $container.isotope({
-                            itemSelector: '.project',
-                            masonry: {
-                                columnWidth: 0
-                            }
+                    
+                        _.each(data.data, function(image){
+                            if(image.height>100&&image.width>100)
+                                $('#portfolio-container').append('' +
+                                        '<div class="span3 project art">' +
+                                        '   <img width="'+image.width+'" height="'+image.height+'" src="'+image.source+'" />' +
+                                        '<span class="overlay"></span>' +
+                                        '<div class="cnt">' +
+                                        '<h6>'+image.name+'</h6>' +
+                                        '<a href="'+image.source+'" class="fancybox-media btn btn-normal" >View details</a>' +
+                                        '</div>' +
+                                        '</div>');
+    
                         });
-                    });
+                        
+                        
+                        $.getJSON('https://graph.facebook.com/146467382215104/photos', function(data) {
 
-                    // filter items when filter link is clicked
-                    $filters.click(function() {
-                        $filters.removeClass("active");
-                        $(this).addClass("active");
-                        var selector = $(this).data('filter');
-                        $container.isotope({filter: selector});
-                        return false;
-                    });
+                    
+                            _.each(data.data, function(image){
+                                if(image.height>100&&image.width>100)
+                                    $('#portfolio-container').append('' +
+                                            '<div class="span3 project art">' +
+                                            '   <img width="'+image.width+'" height="'+image.height+'" src="'+image.source+'" />' +
+                                            '<span class="overlay"></span>' +
+                                            '<div class="cnt">' +
+                                            '<h6>'+image.name+'</h6>' +
+                                            '<a href="'+image.source+'" class="fancybox-media btn btn-normal" >View details</a>' +
+                                            '</div>' +
+                                            '</div>');
+        
+                            });
 
+
+                            var $container = $('#portfolio-container'),
+                                    $filters = $("#filters a");
+        
+                            $container.imagesLoaded(function() {
+                                $container.isotope({
+                                    itemSelector: '.project',
+                                    masonry: {
+                                        columnWidth: 0
+                                    }
+                                });
+                            });
+        
+                            // filter items when filter link is clicked
+                            $filters.click(function() {
+                                $filters.removeClass("active");
+                                $(this).addClass("active");
+                                var selector = $(this).data('filter');
+                                $container.isotope({filter: selector});
+                                return false;
+                            });
+                        });
+                     });
                 });
 
             });
