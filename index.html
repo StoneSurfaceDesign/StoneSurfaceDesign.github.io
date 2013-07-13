@@ -438,10 +438,12 @@
             $(function() {
                 $("#sendContact").click(function(){
                     $.ajax({
-                        dataType: "json",
+                        type : "GET",
+                        dataType : "jsonp",
                         url: 'http://stonesurfacedesignservices.aws.af.cm/email?subject='+$('#name').val()+'&emailbody='+encodeURIComponent($('#message').val()+'\r\n'+$('#message').val()),
-                        data: data,
-                        success: success
+                        success: function(data){
+                            console.log(data);
+                        }
                     });
                 });
 
