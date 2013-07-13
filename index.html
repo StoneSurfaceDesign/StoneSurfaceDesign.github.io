@@ -330,6 +330,13 @@
                                             <input  id="email" name="email" type="text" value="" class="input-xlarge">
                                         </div>
                                     </div>
+                                    
+                                    <div class="clearfix">
+                                        <label for="phone"><span>Phone:</span></label>
+                                        <div class="input">
+                                            <input  id="phone" name="phone" type="text" value="" class="input-xlarge">
+                                        </div>
+                                    </div>
 
                                     <div class="clearfix">
                                         <label for="message"><span>Message:</span></label>
@@ -466,7 +473,7 @@
                     $.ajax({
                         type : "GET",
                         dataType : "jsonp",
-                        url: 'http://stonesurfacedesignservices.aws.af.cm/email?subject=New lead for '+$('#name').val()+'&emailbody=Reply to:'+encodeURIComponent($('#email').val()+'\r\nContact Comment:'+$('#message').val()),
+                        url: 'http://stonesurfacedesignservices.aws.af.cm/email?subject=New lead for '+$('#name').val()+'&emailbody=Reply to:'+encodeURIComponent($('#email').val()+'\r\nContact Number: '+$('#phone').val()+'\r\nContact Comment:'+$('#message').val()),
                         success: function(data){
                             console.log(data);
                             $.msgBox({
