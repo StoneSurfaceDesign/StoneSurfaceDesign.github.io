@@ -8,7 +8,7 @@ modified by Oliver Kopp, 2012.
 */
 
 // users may change this variable to fit their needs
-var msgBoxImagePath = "Images/";
+var msgBoxImagePath = "images/";
 
 jQuery.msgBox = msg;
 function msg (options) {
