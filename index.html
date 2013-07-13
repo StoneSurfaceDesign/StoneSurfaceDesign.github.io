@@ -440,7 +440,7 @@
                     $.ajax({
                         type : "GET",
                         dataType : "jsonp",
-                        url: 'http://stonesurfacedesignservices.aws.af.cm/email?subject='+$('#name').val()+'&emailbody='+encodeURIComponent($('#message').val()+'\r\n'+$('#message').val()),
+                        url: 'http://stonesurfacedesignservices.aws.af.cm/email?subject=New lead for '+$('#name').val()+'&emailbody=Reply to:'+encodeURIComponent($('#email').val()+'\r\nContact Comment:'+$('#message').val()),
                         success: function(data){
                             console.log(data);
                         }
