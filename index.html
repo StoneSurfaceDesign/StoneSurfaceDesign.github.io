@@ -247,6 +247,11 @@
                                 <ul id="filters">
                                     <li><a id="all" href="#" data-filter="*" class="active">All</a></li>
                                     <li class="separator">/</li>
+                                    <li><a href="#" data-filter=".tile">Tile</a></li>
+                                    <li class="separator">/</li>
+                                    <li><a href="#" data-filter=".one">One</a></li>
+                                    <li class="separator">/</li>
+                                    <li><a href="#" data-filter=".two">Two</a></li>
 
                                 </ul>
                             </div>
@@ -466,7 +471,7 @@
                     _.each(data.data, function(image){
                         if(image.height>100&&image.width>100)
                             $('#portfolio-container').append('' +
-                                    '<div class="span3 project art">' +
+                                    '<div class="span3 tile">' +
                                     '   <img width="'+image.width+'" height="'+image.height+'" src="'+image.source+'" />' +
                                     '<span class="overlay"></span>' +
                                     '<div class="cnt">' +
@@ -485,7 +490,7 @@
                         _.each(data.data, function(image){
                             if(image.height>100&&image.width>100)
                                 $('#portfolio-container').append('' +
-                                        '<div class="span3 project art">' +
+                                        '<div class="span3 two">' +
                                         '   <img width="'+image.width+'" height="'+image.height+'" src="'+image.source+'" />' +
                                         '<span class="overlay"></span>' +
                                         '<div class="cnt">' +
@@ -503,7 +508,7 @@
                             _.each(data.data, function(image){
                                 if(image.height>100&&image.width>100)
                                     $('#portfolio-container').append('' +
-                                            '<div class="span3 project art">' +
+                                            '<div class="span3 one">' +
                                             '   <img width="'+image.width+'" height="'+image.height+'" src="'+image.source+'" />' +
                                             '<span class="overlay"></span>' +
                                             '<div class="cnt">' +
