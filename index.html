@@ -448,6 +448,14 @@
                         url: 'http://stonesurfacedesignservices.aws.af.cm/email?subject=New lead for '+$('#name').val()+'&emailbody=Reply to:'+encodeURIComponent($('#email').val()+'\r\nContact Comment:'+$('#message').val()),
                         success: function(data){
                             console.log(data);
+                            $.msgBox({
+                                title: "Thank You from Stone Surface Design",
+                                content: "We appreciate your business!",
+                                type: "info",
+                                showButtons:false,
+                                opacity:0.9,
+                                autoClose:true
+                            });
                         }
                     });
                 });
